@@ -1,0 +1,120 @@
+use sup_inventarios;
+
+create table supermercados (
+ID_supermercado int not null auto_increment primary key,
+nombre varchar (60),
+identificacion integer,
+Direccion varchar (99),
+Fecha_Apertura date,
+Fecha_Cierre date
+);
+
+create table proveedores (
+ID_Proveedor int not null auto_increment primary key,
+Nombre varchar (60),
+Identificacion integer,
+Producto varchar (99),
+Contacto varchar (99),
+Numero_contrato varchar (99),
+Cantidad_pedidos varchar (99)
+);
+
+create table Pedidos (
+ID_pedido int not null auto_increment primary key,
+Codigo_producto int,
+Nombre_producto varchar (70),
+Lote int,
+ID_proveedor1 int,
+Fecha_agenda date,
+Fecha_llegada date,
+ID_almacenaje1 int,
+Alm_Stok_bodega int,
+Volor integer
+);
+
+
+create table Almacen (
+ID_almacen int not null auto_increment primary key,
+Nombre varchar (90),
+ID_pedido1 int,
+ID_empleado3 int,
+Lote3 int,
+Fecha_ingreso date
+);
+
+create table surtido_supermercado (
+ID_surtido int not null auto_increment primary key,
+Lote2 int,
+ID_Almacen1 int,
+Cod_producto2 int,
+Fecha_Surtido date,
+Observaciones text
+);
+
+CREATE TABLE Empleados (
+IDempleado int not null auto_increment primary key,
+Nombre_Completo text,
+Identificacion integer,
+Tipo_Contrato varchar (35),
+FechaIngreso date,
+FechaFin varchar (90),
+Codigo_Puesto int,
+Puesto varchar (99),
+Horario varchar (99)
+);
+
+
+CREATE TABLE Facturacion (
+IDFacturacion int not null auto_increment primary key,
+IDVenta1 int,
+ValorTotal int,
+FechaVenta1 datetime,
+TotalDia bigint,
+TotalSemana bigint,
+TotalMes bigint,
+TotalAnual bigint
+);
+
+CREATE TABLE Ventas (
+ID_Venta int not null auto_increment primary key,
+IDempleado4 int,
+Codigo_Producto4 int,
+Nombre_Cliente varchar (90),
+Identificacion integer,
+Numero_Factura int,
+FechaVenta date,
+ValorTotal integer
+); 
+
+CREATE TABLE Clientes (
+ID_cliente int not null auto_increment primary key,
+Nombre varchar (99),
+Identificacion integer,
+Numero_Compra varchar (15)
+);
+
+create table Inventarios (
+Num_inventario int not null auto_increment primary key,
+Id_empleado2 int,
+Fecha_Inv date,
+Lote int,
+Cod_producto int,
+Fecha_Ingreso date,
+Fecha_Salida date,
+Vencimiento date,
+Observacion text
+);
+
+create table Rol (
+ID_rol int not null auto_increment primary key,
+Nombre_puesto varchar (65),
+Cod_puesto int,
+Id_empleado_A int,
+Nombre_Empleado2 varchar (99)
+);
+
+Select  IDempleado, Puesto, Horario, Nombre_Completo
+From empleados jv
+Where jv.Codigo_Puesto in ('1102','1212');
+
+
